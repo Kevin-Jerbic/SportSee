@@ -1,8 +1,14 @@
-# React + Vite
+# Projet 12 SportSee
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## API
 
-Currently, two official plugins are available:
+Tout d'abord veuillez clôner l'api en vous rendant [ici](https://github.com/OpenClassrooms-Student-Center/SportSee)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Installez les dépendances et lancez l'api
+
+## Front-End
+
+Vous pouvez désormais cloner ce repo.
+
+-   Installez les dépendances avec **npm install**
+-   Lancez le serveur avec **npm run dev**
