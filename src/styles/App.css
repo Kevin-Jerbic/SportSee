@@ -1,0 +1,62 @@
+:root {
+    --primary-color: #FF0101;
+    --background-color: #FBFBFB;
+    --text-color: #020203;
+    --sidebar-width: 80px;
+    --sidebar-closed-width: 80px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    margin-left: 117px;
+    width: calc(100% - 117px);
+}
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 .name {
+    color: var(--primary-color);
+}
+
+.charts-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.small-charts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nutrition-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .charts-container {
+    flex-direction: column;
+  }
+  
+  .small-charts {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

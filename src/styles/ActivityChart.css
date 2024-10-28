@@ -1,0 +1,38 @@
+.activity-chart {
+    background-color: #f7f6f6;
+    padding: 24px 32px;
+    margin-top: -34px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.activity-chart h3 {
+    color: #20253A;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.custom-tooltip {
+    background-color: #E60000;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 24px;
+}
+.recharts-default-legend {
+    top: -200px;
+}
+.activity-chart .recharts-default-legend .recharts-legend-item {
+    margin-left: 32px;
+}
+
+.activity-chart .recharts-default-legend .recharts-legend-item-text {
+    color: #C4C4C4;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.activity-chart .recharts-cartesian-axis-tick-value {
+    fill: #9B9EAC;
+}

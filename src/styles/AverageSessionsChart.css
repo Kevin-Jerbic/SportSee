@@ -1,0 +1,39 @@
+.average-sessions-chart {
+    background-color: #FF0000;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    width: 258px;
+    height: 263px;
+}
+
+.average-sessions-chart h2 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+    font-weight: 500;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    margin: 0;
+}
+
+.average-sessions-chart .custom-tooltip {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.average-sessions-chart .recharts-cartesian-axis-tick-value {
+    fill: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+}
+
+.average-sessions-chart .recharts-curve.recharts-line-curve {
+    stroke-width: 2px;
+}
+
+.average-sessions-chart .recharts-tooltip-cursor {
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 32px;
+}

@@ -1,0 +1,20 @@
+.performance-chart {
+    background-color: #282D30;
+    border-radius: 5px;
+    padding: 20px;
+    width: 258px;
+    height: 263px;
+}
+
+.performance-chart h2 {
+    color: white;
+}
+
+.performance-chart .recharts-polar-angle-axis-tick-value {
+    font-size: 14px;
+}
+
+.performance-chart .recharts-polar-grid-concentric-polygon {
+    stroke: white;
+    opacity: 0.3;
+}

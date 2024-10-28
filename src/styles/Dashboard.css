@@ -1,0 +1,56 @@
+.dashboard {
+    margin-left: 100px;
+    margin-top: 140px;
+    background-color: #FBFBFB;
+}
+
+.dashboard-header h1 {
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header .name {
+    color: #FF0101;
+}
+
+.dashboard-content {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.charts-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.small-charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 260px;
+}
+
+.small-charts-container > div {
+    flex: 1;
+}
+
+.nutrition-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.error-data, .loading-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
