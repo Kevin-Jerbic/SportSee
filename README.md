@@ -4,7 +4,8 @@
 
 Tout d'abord veuillez clôner l'api en vous rendant [ici](https://github.com/OpenClassrooms-Student-Center/SportSee)
 
--   Installez les dépendances et lancez l'api
+-   Installez les dépendances
+-   **_Veuillez à bien rename le dossier, par exemple 'api'_**
 
 ## Front-End
 
