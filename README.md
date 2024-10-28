@@ -12,3 +12,5 @@ Vous pouvez désormais cloner ce repo.
 
 -   Installez les dépendances avec **npm install**
 -   Lancez le serveur avec **npm run dev**
+
+![SportSee](https://github.com/user-attachments/assets/6814a2ee-7217-4854-9e86-c1c3b0340508)
