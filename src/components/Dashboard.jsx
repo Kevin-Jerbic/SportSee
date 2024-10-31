@@ -5,6 +5,12 @@ import {
     fetchUserAverageSessions,
     fetchUserPerformance,
 } from '../services/api.js';
+import {
+    UserModel,
+    UserActivityModel,
+    UserAverageSessionModel,
+    UserPerformanceModel,
+} from '../models/index.jsx';
 import ActivityChart from './ActivityChart';
 import AverageSessionsChart from './AverageSessionsChart';
 import PerformanceChart from './PerformanceChart';
@@ -36,10 +42,14 @@ function Dashboard() {
                         fetchUserAverageSessions(userId),
                         fetchUserPerformance(userId),
                     ]);
-                setUserData(user.data);
-                setActivityData(activity.data);
-                setAverageSessionsData(averageSessions.data);
-                setPerformanceData(performance.data);
+
+                // Utilisation des classes de modélisation
+                setUserData(new UserModel(user.data));
+                setActivityData(new UserActivityModel(activity.data));
+                setAverageSessionsData(
+                    new UserAverageSessionModel(averageSessions.data)
+                );
+                setPerformanceData(new UserPerformanceModel(performance.data));
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setErrors({
@@ -71,7 +81,7 @@ function Dashboard() {
             </header>
             <div className="dashboard-content">
                 <div className="charts-container">
-                    <ActivityChart data={activityData?.sessions} />
+                    <ActivityChart data={activityData} />
                     <div className="small-charts-container">
                         <AverageSessionsChart
                             data={averageSessionsData?.sessions}
@@ -80,9 +90,7 @@ function Dashboard() {
                             data={performanceData?.data}
                             kind={performanceData?.kind}
                         />
-                        <ScoreChart
-                            score={userData?.todayScore || userData?.score}
-                        />
+                        <ScoreChart score={userData?.todayScore} />
                     </div>
                 </div>
                 <div className="nutrition-container">

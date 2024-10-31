@@ -9,23 +9,21 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts';
+import { UserActivityModel } from '../models/index.jsx';
 import '../styles/ActivityChart.css';
 
 function ActivityChart({ data }) {
     // eslint-disable-next-line react/no-unescaped-entities
     if (!data) return <div>Aucune donnée d'activité disponible</div>;
 
-    const formatXAxis = tickItem => {
-        const date = new Date(tickItem);
-        return date.getDate().toString();
-    };
+    const formatXAxis = tickItem => data.formatXAxis(tickItem);
 
     return (
         <div className="activity-chart">
             <h2>Activité quotidienne</h2>
             <ResponsiveContainer width="100%" height={300}>
                 <BarChart
-                    data={data}
+                    data={data.sessions}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -101,13 +99,7 @@ CustomTooltip.propTypes = {
 };
 
 ActivityChart.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            day: PropTypes.string,
-            kilogram: PropTypes.number,
-            calories: PropTypes.number,
-        })
-    ).isRequired,
+    data: PropTypes.instanceOf(UserActivityModel).isRequired,
 };
 
 export default ActivityChart;
