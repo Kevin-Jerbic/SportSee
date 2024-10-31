@@ -7,6 +7,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
+import { UserAverageSessionModel } from '../models/index.jsx';
 import '../styles/AverageSessionsChart.css';
 
 function AverageSessionsChart({ data }) {
@@ -19,8 +20,6 @@ function AverageSessionsChart({ data }) {
             </div>
         );
     }
-
-    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -55,7 +54,7 @@ function AverageSessionsChart({ data }) {
                         axisLine={false}
                         tickLine={false}
                         tick={{ fill: 'rgba(255, 255, 255, 0.5)' }}
-                        tickFormatter={value => days[value - 1]}
+                        tickFormatter={value => value}
                         padding={{ left: 10, right: 10 }}
                     />
                     <YAxis
@@ -107,12 +106,7 @@ function AverageSessionsChart({ data }) {
 }
 
 AverageSessionsChart.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            day: PropTypes.number,
-            sessionLegnth: PropTypes.number,
-        })
-    ),
+    data: PropTypes.instanceOf(UserAverageSessionModel).isRequired,
 };
 
 export default AverageSessionsChart;

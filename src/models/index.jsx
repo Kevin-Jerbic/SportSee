@@ -47,10 +47,14 @@ export class UserAverageSessionModel {
         this.userId = data?.userId;
         this.sessions = Array.isArray(data?.sessions)
             ? data.sessions.map(session => ({
-                  day: session?.day,
+                  day: this.formatDay(session?.day),
                   sessionLength: session?.sessionLength,
               }))
             : [];
+    }
+    formatDay(dayNumber) {
+        const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+        return days[(dayNumber - 1) % 7];
     }
 }
 

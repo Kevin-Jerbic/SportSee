@@ -28,7 +28,7 @@ function Dashboard() {
     // Choix de l'identifiant de l'utilisateur :
     // 12 Karl
     // 18 Cecilia
-    const userId = 12;
+    const userId = 18;
 
     useEffect(() => {
         const fetchAllData = async () => {
