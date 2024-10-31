@@ -87,7 +87,7 @@ function Dashboard() {
                             data={averageSessionsData?.sessions}
                         />
                         <PerformanceChart
-                            data={performanceData?.data}
+                            data={performanceData}
                             kind={performanceData?.kind}
                         />
                         <ScoreChart score={userData?.todayScore} />

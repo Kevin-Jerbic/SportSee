@@ -57,7 +57,7 @@ export class UserAverageSessionModel {
 export class UserPerformanceModel {
     constructor(data) {
         this.userId = data?.userId;
-        this.kind = data?.kind || {
+        this.kind = {
             1: 'Cardio',
             2: 'Énergie',
             3: 'Endurance',
@@ -72,24 +72,21 @@ export class UserPerformanceModel {
               }))
             : [];
     }
-    formatData(item) {
-        return (
-            this.data.map(item) >
-            {
-                subject: this.kind[item.kind],
-                A: item.value,
-            }
-        );
+    formatData() {
+        return this.data.map(item => ({
+            subject: this.kind[item.kind],
+            A: item.value,
+        }));
     }
     getSortedData() {
         const formattedData = this.formatData();
         return [
-            formattedData[5], // Intensité
-            formattedData[4], // Vitesse
-            formattedData[1], // Énergie
-            formattedData[2], // Endurance
-            formattedData[3], // Force
-            formattedData[0], // Cardio
+            formattedData.find(item => item.subject === 'Intensité'),
+            formattedData.find(item => item.subject === 'Vitesse'),
+            formattedData.find(item => item.subject === 'Énergie'),
+            formattedData.find(item => item.subject === 'Endurance'),
+            formattedData.find(item => item.subject === 'Force'),
+            formattedData.find(item => item.subject === 'Cardio'),
         ];
     }
 }

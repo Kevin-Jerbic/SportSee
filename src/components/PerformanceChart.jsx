@@ -6,34 +6,14 @@ import {
     PolarAngleAxis,
     ResponsiveContainer,
 } from 'recharts';
+import { UserPerformanceModel } from '../models/index.jsx';
 import '../styles/PerformanceChart.css';
 
 function PerformanceChart({ data, kind }) {
     if (!data || !kind)
         return <div>Aucune donnée de performance disponible</div>;
 
-    const translations = {
-        1: 'Cardio',
-        2: 'Énergie',
-        3: 'Endurance',
-        4: 'Force',
-        5: 'Vitesse',
-        6: 'Intensité',
-    };
-
-    const formattedData = data.map(item => ({
-        subject: translations[item.kind] || kind[item.kind],
-        A: item.value,
-    }));
-
-    const sortedData = [
-        formattedData[5], // Intensité
-        formattedData[4], // Vitesse
-        formattedData[1], // Énergie
-        formattedData[2], // Endurance
-        formattedData[3], // Force
-        formattedData[0], // Cardio
-    ];
+    const formattedData = data.getSortedData();
 
     return (
         <div className="performance-chart">
@@ -42,7 +22,7 @@ function PerformanceChart({ data, kind }) {
                     cx="50%"
                     cy="50%"
                     outerRadius="70%"
-                    data={sortedData}
+                    data={formattedData}
                 >
                     <PolarGrid radialLines={false} />
                     <PolarAngleAxis
@@ -64,13 +44,8 @@ function PerformanceChart({ data, kind }) {
 }
 
 PerformanceChart.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            kind: PropTypes.number,
-            value: PropTypes.number,
-        })
-    ),
-    kind: PropTypes.objectOf(PropTypes.string),
+    data: PropTypes.instanceOf(UserPerformanceModel).isRequired,
+    kind: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default PerformanceChart;
